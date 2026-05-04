@@ -2,10 +2,6 @@ function getTimeDifference(futureTime: string) {
   const now = new Date().getTime();
   const future = new Date(futureTime).getTime();
 
-  console.log(now);
-  console.log(futureTime);
-  console.log(future);
-
   const diffMs = future - now;
 
   if (diffMs <= 0) return "Time already passed";
