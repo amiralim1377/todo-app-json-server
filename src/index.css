@@ -5,7 +5,7 @@
     linear-gradient(rgba(11, 198, 189, 0.5), rgba(17, 17, 16, 0.5)),
     url("/jungle.jpg");
   width: 100%;
-  height: calc(30vh);
+  height: calc(40vh);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
