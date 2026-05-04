@@ -1,3 +1,4 @@
+import { useWindowSize } from "../../hook/useWindowSize";
 import { apiFetch } from "../../services/apiFetch";
 import type { ITodo } from "../../types/Todo.interface";
 import { classNames } from "../../utility/classNames";
@@ -10,9 +11,13 @@ interface TaskListItemProps {
 
 function TaskListItem({ todoItem }: TaskListItemProps) {
   const { completed, dueDate, id, todo } = todoItem;
-  const isCompleted = completed ? "Did it" : "mark as Done";
+  const { width } = useWindowSize();
 
-  console.log(dueDate);
+  const isCompleted = completed
+    ? "Did it"
+    : width < 500
+      ? "Done"
+      : "mark as Done";
 
   const handleDeleteTodo = async (id: number) => {
     try {
@@ -60,14 +65,15 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
         </span>
         <span>{completed ? "" : getTimeDifference(dueDate)}</span>
       </div>
+
       <button
         onClick={() => handleDoneTodo(id)}
         disabled={completed}
         className={classNames(
           completed
             ? "border border-t-transparent border-b-transparent bg-gray-200 text-gray-500"
-            : "bg-amber-300 text-black hover:bg-amber-200",
-          "cursor-pointer p-1 text-xs text-wrap capitalize transition-all md:p-3",
+            : "bg-amber-300 text-wrap text-black hover:bg-amber-200",
+          "cursor-pointer p-1 text-xs capitalize transition-all md:p-3",
         )}
       >
         {isCompleted}
@@ -85,7 +91,10 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
       </button>
       <button
         onClick={() => handleDeleteTodo(id)}
-        className="cursor-pointer overflow-hidden bg-red-800 p-1 text-sm text-white capitalize hover:bg-red-700/80 md:p-3"
+        className={classNames(
+          completed ? "" : "",
+          "cursor-pointer overflow-hidden bg-red-800 p-1 text-sm text-white capitalize hover:bg-red-700/80 md:p-3",
+        )}
       >
         delete
       </button>
