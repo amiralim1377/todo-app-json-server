@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div className="">
       <TodoHeader />
-      <div className="mx-auto flex w-full flex-col items-center justify-center p-2 md:p-6 xl:w-2/3">
+      <div className="mx-auto flex w-full flex-col items-center justify-center p-2 md:p-5 xl:w-2/3">
         <AddTodoForm />
         <TodoList />
       </div>
