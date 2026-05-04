@@ -1,6 +1,7 @@
 import { apiFetch } from "../../services/apiFetch";
 import type { ITodo } from "../../types/Todo.interface";
 import { classNames } from "../../utility/classNames";
+import { getRandomEmoji } from "../../utility/getRandomEmoji";
 import { getTimeDifference } from "../../utility/getTimeDifference";
 
 interface TaskListItemProps {
@@ -10,6 +11,8 @@ interface TaskListItemProps {
 function TaskListItem({ todoItem }: TaskListItemProps) {
   const { completed, dueDate, id, todo } = todoItem;
   const isCompleted = completed ? "Did it" : "mark as Done";
+
+  console.log(dueDate);
 
   const handleDeleteTodo = async (id: number) => {
     try {
@@ -51,15 +54,18 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
         <span>{todo}</span>
         <span>-</span>
         <span className="font-bold">
-          {completed ? "you did it " : "you must do it until: "}
+          {completed
+            ? `you did it ${getRandomEmoji()} `
+            : "you must do it until: "}
         </span>
         <span>{completed ? "" : getTimeDifference(dueDate)}</span>
       </div>
       <button
         onClick={() => handleDoneTodo(id)}
+        disabled={completed}
         className={classNames(
           completed
-            ? "bg-secondary text-white"
+            ? "border border-t-transparent border-b-transparent bg-gray-200 text-gray-500"
             : "bg-amber-300 text-black hover:bg-amber-200",
           "cursor-pointer p-1 text-xs text-wrap capitalize transition-all md:p-3",
         )}
@@ -68,7 +74,12 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
       </button>
       <button
         disabled={completed}
-        className="bg-accent hover:bg-accent/80 cursor-pointer p-1 text-sm text-white capitalize md:p-3"
+        className={classNames(
+          completed
+            ? "bg-gray-200 text-gray-500"
+            : "bg-accent hover:bg-accent/80 text-white",
+          "cursor-pointer p-1 text-sm capitalize md:p-3",
+        )}
       >
         edit
       </button>
