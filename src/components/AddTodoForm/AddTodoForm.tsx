@@ -42,7 +42,7 @@ function AddTodoForm() {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid min-h-28 w-full grid-cols-1 justify-items-center gap-1 p-2 md:grid-cols-3"
+        className="grid min-h-28 w-full grid-cols-1 justify-items-center gap-1 p-2 md:grid-cols-[2fr_2fr_1fr]"
       >
         <div className="flex w-full flex-col gap-1 text-zinc-500 capitalize">
           <label className="hidden md:block" htmlFor={todoId}>
