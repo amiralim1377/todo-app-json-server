@@ -1,13 +1,15 @@
 import { apiFetch } from "../../services/apiFetch";
 import type { ITodo } from "../../types/Todo.interface";
+import { classNames } from "../../utility/classNames";
+import { getTimeDifference } from "../../utility/getTimeDifference";
 
 interface TaskListItemProps {
   todoItem: ITodo;
 }
 
 function TaskListItem({ todoItem }: TaskListItemProps) {
-  const { completed, dueDate, id, todo, createdAt, updatedAt } = todoItem;
-  const isCompleted = completed ? "Did it" : "Done";
+  const { completed, dueDate, id, todo } = todoItem;
+  const isCompleted = completed ? "Did it" : "mark as Done";
 
   const handleDeleteTodo = async (id: number) => {
     try {
@@ -37,26 +39,42 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
   };
 
   return (
-    <div className="mt-1 flex overflow-hidden rounded-xl border border-zinc-300">
+    <div
+      className={classNames(
+        completed
+          ? "border-gray-3000 cursor-default border bg-gray-200 text-gray-500"
+          : "",
+        "mt-1 flex overflow-hidden rounded-xl border border-zinc-300",
+      )}
+    >
       <div className="flex-1 p-1 text-sm capitalize md:p-3">
         <span>{todo}</span>
         <span>-</span>
-        <span>unitl:{dueDate}</span>
-        <span>-</span>
-        <span>createdAt:{createdAt}</span>
+        <span className="font-bold">
+          {completed ? "you did it " : "you must do it until: "}
+        </span>
+        <span>{completed ? "" : getTimeDifference(dueDate)}</span>
       </div>
       <button
         onClick={() => handleDoneTodo(id)}
-        className="bg-secondary cursor-pointer p-1 text-sm text-white capitalize md:p-3"
+        className={classNames(
+          completed
+            ? "bg-secondary text-white"
+            : "bg-amber-300 text-black hover:bg-amber-200",
+          "cursor-pointer p-1 text-xs text-wrap capitalize transition-all md:p-3",
+        )}
       >
         {isCompleted}
       </button>
-      <button className="bg-accent cursor-pointer p-1 text-sm text-white capitalize md:p-3">
+      <button
+        disabled={completed}
+        className="bg-accent hover:bg-accent/80 cursor-pointer p-1 text-sm text-white capitalize md:p-3"
+      >
         edit
       </button>
       <button
         onClick={() => handleDeleteTodo(id)}
-        className="cursor-pointer overflow-hidden bg-red-800 p-1 text-sm text-white capitalize md:p-3"
+        className="cursor-pointer overflow-hidden bg-red-800 p-1 text-sm text-white capitalize hover:bg-red-700/80 md:p-3"
       >
         delete
       </button>
