@@ -24,11 +24,11 @@ function TodoList() {
   }, []);
 
   return (
-    <div className="mt-2 w-full">
+    <div className="mt-1 w-full">
       <h1 className="text-left text-xl text-zinc-600 capitalize md:text-4xl">
         task
       </h1>
-      <div className="max-h-64 overflow-y-scroll">
+      <div className="max-h-60 overflow-y-scroll">
         {todosArray.length > 0 ? (
           sortedTodo?.map((todoItem: ITodo) => {
             return <TaskListItem key={todoItem.id} todoItem={todoItem} />;
