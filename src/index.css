@@ -13,3 +13,10 @@
   filter: blur(0.1px);
   -webkit-filter: blur(0.1px);
 }
+
+@theme {
+  --color-primary: #084948;
+  --color-secondary: #4d7c77;
+  --color-primary-dark: #033635;
+  --color-accent: gray;
+}
