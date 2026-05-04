@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+.header-image {
+  background-image:
+    linear-gradient(rgba(11, 198, 189, 0.5), rgba(17, 17, 16, 0.5)),
+    url("/public/jungle.jpg");
+  width: 100%;
+  height: calc(30vh);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  filter: blur(0.1px);
+  -webkit-filter: blur(0.1px);
+}
