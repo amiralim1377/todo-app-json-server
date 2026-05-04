@@ -147,27 +147,27 @@
   ],
   "todo": [
     {
-      "todo": "write coding",
-      "id": 1,
-      "completed": true,
-      "dueDate": "2026-05-10T15:30:00.000Z",
-      "createdAt": "2026-05-04T10:00:00.000Z",
-      "updatedAt": "2026-05-04T10:00:00.000Z"
+      "todo": "a",
+      "completed": false,
+      "dueDate": "2026-05-04T23:59:59.000Z",
+      "createdAt": "2026-05-04T16:00:52.635Z",
+      "updatedAt": "2026-05-04T16:00:52.635Z",
+      "id": 1
     },
     {
-      "todo": "a",
-      "completed": true,
-      "dueDate": "2026-05-07",
-      "createdAt": "2026-05-04T14:06:17.398Z",
-      "updatedAt": "2026-05-04T14:06:17.398Z",
+      "todo": "d",
+      "completed": false,
+      "dueDate": "2026-05-04T20:29:59.000Z",
+      "createdAt": "2026-05-04T16:06:30.527Z",
+      "updatedAt": "2026-05-04T16:06:30.527Z",
       "id": 2
     },
     {
-      "todo": "v",
+      "todo": "learn js",
       "completed": false,
-      "dueDate": "2026-05-06",
-      "createdAt": "2026-05-04T14:13:16.103Z",
-      "updatedAt": "2026-05-04T14:13:16.103Z",
+      "dueDate": "2026-05-05T20:29:59.000Z",
+      "createdAt": "2026-05-04T16:07:26.174Z",
+      "updatedAt": "2026-05-04T16:07:26.174Z",
       "id": 3
     }
   ]
