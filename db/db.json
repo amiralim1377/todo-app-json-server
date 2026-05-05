@@ -147,22 +147,6 @@
   ],
   "todo": [
     {
-      "todo": "learn java script",
-      "completed": true,
-      "dueDate": "2026-05-05T20:29:59.000Z",
-      "createdAt": "2026-05-05T10:28:22.942Z",
-      "updatedAt": "2026-05-05T10:28:22.942Z",
-      "id": 1
-    },
-    {
-      "todo": "learn java script",
-      "completed": false,
-      "dueDate": "2026-05-08T20:29:59.000Z",
-      "createdAt": "2026-05-05T10:31:01.903Z",
-      "updatedAt": "2026-05-05T10:31:01.903Z",
-      "id": 2
-    },
-    {
       "todo": "test time ",
       "completed": false,
       "dueDate": "2026-05-05T20:29:59.000Z",
@@ -171,36 +155,20 @@
       "id": 3
     },
     {
-      "todo": "b",
-      "completed": false,
-      "dueDate": "2026-05-05T20:29:59.000Z",
-      "createdAt": "2026-05-05T11:57:51.124Z",
-      "updatedAt": "2026-05-05T11:57:51.124Z",
-      "id": 4
-    },
-    {
       "todo": "c",
-      "completed": false,
-      "dueDate": "2026-05-05T20:29:59.000Z",
-      "createdAt": "2026-05-05T11:58:15.773Z",
-      "updatedAt": "2026-05-05T11:58:15.773Z",
-      "id": 5
-    },
-    {
-      "todo": "d",
-      "completed": false,
-      "dueDate": "2026-05-05T20:29:59.000Z",
-      "createdAt": "2026-05-05T11:58:24.075Z",
-      "updatedAt": "2026-05-05T11:58:24.075Z",
-      "id": 6
-    },
-    {
-      "todo": "c",
-      "completed": false,
+      "completed": true,
       "dueDate": "2026-05-06T20:29:59.000Z",
       "createdAt": "2026-05-05T11:58:51.227Z",
       "updatedAt": "2026-05-05T11:58:51.227Z",
       "id": 7
+    },
+    {
+      "todo": "learn java script",
+      "completed": false,
+      "dueDate": "2026-05-05T20:29:59.000Z",
+      "createdAt": "2026-05-05T12:25:05.382Z",
+      "updatedAt": "2026-05-05T12:25:05.382Z",
+      "id": 8
     }
   ]
 }
