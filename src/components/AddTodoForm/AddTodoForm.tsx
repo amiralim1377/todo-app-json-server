@@ -64,7 +64,7 @@ function AddTodoForm() {
           )}
         </div>
 
-        <div className="relative flex w-full flex-col gap-1 text-zinc-500 capitalize">
+        <div className="relative flex w-full flex-col gap-1 pb-5 text-zinc-500 capitalize">
           <label className="hidden text-nowrap md:block" htmlFor={dateId}>
             when should Todo be Done?
           </label>
