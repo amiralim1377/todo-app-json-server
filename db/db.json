@@ -153,14 +153,6 @@
       "createdAt": "2026-05-05T11:58:51.227Z",
       "updatedAt": "2026-05-05T11:58:51.227Z",
       "id": 7
-    },
-    {
-      "todo": "last test54",
-      "completed": false,
-      "dueDate": "2026-05-05T20:29:59.000Z",
-      "createdAt": "2026-05-05T14:59:41.757Z",
-      "updatedAt": "2026-05-05T15:31:24.759Z",
-      "id": 13
     }
   ]
 }
