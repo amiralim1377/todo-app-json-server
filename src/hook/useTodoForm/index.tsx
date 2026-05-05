@@ -20,6 +20,7 @@ const useTodoForm = ({ initialTodo, mode = "add" }: UseTodoFormOptions) => {
     formState: { errors },
   } = useForm<TodoFormValues>({
     resolver: zodResolver(todoSchema),
+    mode: "onChange",
   });
 
   const onSubmit: SubmitHandler<TodoFormValues> = (data) => {
