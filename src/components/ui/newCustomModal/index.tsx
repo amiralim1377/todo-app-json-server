@@ -52,7 +52,7 @@ export default function NewCustomModal({
         >
           <div
             className={classNames(
-              "relative flex max-h-[66vh] w-full max-w-1/2 flex-col rounded-2xl bg-white p-6",
+              "relative flex max-h-[66vh] w-full flex-col rounded-2xl bg-white p-6",
               "shadow-lg",
               className,
             )}
