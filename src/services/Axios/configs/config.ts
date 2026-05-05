@@ -6,7 +6,6 @@ const apiRequests = axios.create({
     "Content-Type": "application/json",
     Authorization: "Bearer Token",
   },
-  signal: AbortSignal.timeout(6000),
 });
 
 apiRequests.interceptors.request.use(
