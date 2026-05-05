@@ -147,60 +147,12 @@
   ],
   "todo": [
     {
-      "todo": "learn js",
-      "completed": true,
-      "dueDate": "2026-05-05T20:29:59.000Z",
-      "createdAt": "2026-05-04T16:07:26.174Z",
-      "updatedAt": "2026-05-04T16:07:26.174Z",
-      "id": 3
-    },
-    {
-      "todo": "a",
-      "completed": false,
-      "dueDate": "2026-05-04T20:29:59.000Z",
-      "createdAt": "2026-05-04T16:34:27.541Z",
-      "updatedAt": "2026-05-04T16:34:27.541Z",
-      "id": 4
-    },
-    {
-      "todo": "a",
+      "todo": "learn java script",
       "completed": false,
       "dueDate": "2026-05-05T20:29:59.000Z",
-      "createdAt": "2026-05-04T17:04:12.640Z",
-      "updatedAt": "2026-05-04T17:04:12.640Z",
-      "id": 5
-    },
-    {
-      "todo": "c",
-      "completed": false,
-      "dueDate": "2026-05-08T20:29:59.000Z",
-      "createdAt": "2026-05-04T17:04:19.431Z",
-      "updatedAt": "2026-05-04T17:04:19.431Z",
-      "id": 6
-    },
-    {
-      "todo": "f",
-      "completed": true,
-      "dueDate": "2026-05-21T20:29:59.000Z",
-      "createdAt": "2026-05-04T17:04:29.247Z",
-      "updatedAt": "2026-05-04T17:04:29.247Z",
-      "id": 7
-    },
-    {
-      "todo": "a",
-      "completed": true,
-      "dueDate": "2026-05-07T20:29:59.000Z",
-      "createdAt": "2026-05-04T17:06:30.495Z",
-      "updatedAt": "2026-05-04T17:06:30.495Z",
-      "id": 8
-    },
-    {
-      "todo": "learn axion library",
-      "completed": false,
-      "dueDate": "2026-05-05T20:29:59.000Z",
-      "createdAt": "2026-05-05T07:29:49.875Z",
-      "updatedAt": "2026-05-05T07:29:49.875Z",
-      "id": 9
+      "createdAt": "2026-05-05T10:14:57.088Z",
+      "updatedAt": "2026-05-05T10:14:57.088Z",
+      "id": 1
     }
   ]
 }
