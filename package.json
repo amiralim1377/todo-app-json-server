@@ -11,6 +11,7 @@
     "json-server": "json-server --watch db/db.json --port 4000"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@tailwindcss/vite": "^4.2.4",
     "axios": "^1.16.0",
     "clsx": "^2.1.1",
@@ -19,7 +20,8 @@
     "react-dom": "^19.2.5",
     "react-hook-form": "^7.75.0",
     "tailwind-merge": "^3.5.0",
-    "tailwindcss": "^4.2.4"
+    "tailwindcss": "^4.2.4",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
