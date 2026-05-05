@@ -1,8 +1,8 @@
 export interface ITodo {
   todo: string;
-  id: number;
+  id?: number;
   completed: boolean;
-  dueDate: string;
+  dueDate: Date;
   createdAt: Date;
   updatedAt: Date;
 }
