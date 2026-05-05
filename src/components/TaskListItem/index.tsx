@@ -53,13 +53,15 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
         "mt-1 flex overflow-hidden rounded-xl border border-zinc-300",
       )}
     >
-      <div className="flex-1 p-1 text-sm capitalize md:p-3">
+      <div className="flex-1 p-1 text-xs capitalize sm:text-sm md:p-3">
         <span>{todo}</span>
         <span>-</span>
         <span className="font-bold">
           {completed
             ? `you did it ${getRandomEmoji()} `
-            : "you must do it until: "}
+            : width > 320
+              ? "you must do it until: "
+              : "until:"}
         </span>
         <span>{completed ? "" : getTimeDifference(dueDate)}</span>
       </div>
