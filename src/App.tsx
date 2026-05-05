@@ -1,4 +1,4 @@
-import { AddTodoForm } from "./components/AddTodoForm/AddTodoForm";
+import { AddTodoForm } from "./components/AddTodoForm";
 import { TodoHeader } from "./components/TodoHeader";
 import { TodoList } from "./components/TodoList";
 import { useWindowSize } from "./hook/useWindowSize";
