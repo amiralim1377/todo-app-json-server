@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { TaskListItem } from "../TaskListItem";
-import { apiFetch } from "../../services/apiFetch";
 import type { ITodo } from "../../types/Todo.interface";
 import { NoTasks } from "../NoTasks";
+import { getTodo } from "../../services/Axios/Requests/todos/Todo";
 
 function TodoList() {
   const [todosArray, setTodoArray] = useState<Array<ITodo>>([]);
@@ -12,8 +12,8 @@ function TodoList() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await apiFetch("http://localhost:4000/todo", "Get");
-        setTodoArray(data);
+        const { data: dataArray } = await getTodo();
+        setTodoArray(dataArray);
       } catch (error) {
         if (error instanceof Error) {
           console.log(error.message);
