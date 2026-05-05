@@ -1,4 +1,4 @@
-function getTimeDifference(futureTime: string) {
+function getTimeDifference(futureTime: Date) {
   const now = new Date().getTime();
   const future = new Date(futureTime).getTime();
 
