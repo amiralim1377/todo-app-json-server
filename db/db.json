@@ -148,11 +148,27 @@
   "todo": [
     {
       "todo": "learn java script",
+      "completed": true,
+      "dueDate": "2026-05-05T20:29:59.000Z",
+      "createdAt": "2026-05-05T10:28:22.942Z",
+      "updatedAt": "2026-05-05T10:28:22.942Z",
+      "id": 1
+    },
+    {
+      "todo": "learn java script",
+      "completed": false,
+      "dueDate": "2026-05-08T20:29:59.000Z",
+      "createdAt": "2026-05-05T10:31:01.903Z",
+      "updatedAt": "2026-05-05T10:31:01.903Z",
+      "id": 2
+    },
+    {
+      "todo": "test time ",
       "completed": false,
       "dueDate": "2026-05-05T20:29:59.000Z",
-      "createdAt": "2026-05-05T10:14:57.088Z",
-      "updatedAt": "2026-05-05T10:14:57.088Z",
-      "id": 1
+      "createdAt": "2026-05-05T10:34:20.126Z",
+      "updatedAt": "2026-05-05T10:34:20.126Z",
+      "id": 3
     }
   ]
 }
