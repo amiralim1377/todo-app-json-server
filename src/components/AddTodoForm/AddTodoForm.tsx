@@ -1,14 +1,7 @@
 import { useId } from "react";
-import { apiFetch } from "../../services/apiFetch";
 import { useForm, type SubmitHandler } from "react-hook-form";
-
-type TodoObjType = {
-  todo: string;
-  completed: boolean;
-  dueDate: Date;
-  createdAt: Date;
-  updatedAt: Date;
-};
+import { addTodos } from "../../services/Axios/Requests/todos/Todo";
+import type { ITodo } from "../../types/Todo.interface";
 
 function AddTodoForm() {
   const todoId = useId();
@@ -16,16 +9,15 @@ function AddTodoForm() {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
-  } = useForm<TodoObjType>();
+  } = useForm<ITodo>();
   const today = new Date().toISOString().split("T")[0];
 
-  const onSubmit: SubmitHandler<TodoObjType> = (data) => {
+  const onSubmit: SubmitHandler<ITodo> = (data) => {
     const { todo, dueDate } = data;
     const localDate = new Date(`${dueDate}T23:59:59`);
 
-    const todoObj: TodoObjType = {
+    const todoObj: ITodo = {
       todo,
       completed: false,
       dueDate: localDate,
@@ -33,9 +25,10 @@ function AddTodoForm() {
       updatedAt: new Date(),
     };
 
-    apiFetch("http://localhost:4000/todo", "POST", todoObj)
-      .then((data) => console.log(data))
-      .then(() => reset())
+    addTodos(todoObj)
+      .then((res) => {
+        console.log(res.data);
+      })
       .catch((err) => console.log(err));
   };
 
