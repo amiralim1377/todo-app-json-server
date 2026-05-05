@@ -36,9 +36,9 @@ function AddTodoForm() {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid min-h-24 w-full grid-cols-1 justify-items-center gap-1 md:grid-cols-[2fr_2fr_1fr]"
+        className="grid w-full grid-cols-1 justify-items-center gap-1 rounded-md border border-zinc-500 bg-white p-6 md:grid-cols-[2fr_2fr_1fr]"
       >
-        <div className="flex w-full flex-col gap-1 text-zinc-500 capitalize">
+        <div className="relative flex w-full flex-col gap-1 pb-5 text-zinc-500 capitalize">
           <label className="hidden md:block" htmlFor={todoId}>
             write your todo below
           </label>
@@ -48,20 +48,21 @@ function AddTodoForm() {
             placeholder="add Todo here"
             className="rounded-md border border-zinc-600 px-2 py-2 placeholder:text-zinc-500"
             {...register("todo", {
-              required: "you should entre your Todo first.",
+              required: "you should enter your Todo first.",
               maxLength: {
                 value: 20,
-                message: "you Todo should be at least 20 character",
+                message: "your Todo should be at most 20 characters",
               },
             })}
           />
           {errors.todo && (
-            <span className="justify-self-start text-left text-xs text-red-500">
+            <span className="absolute bottom-0 left-0 text-left text-xs text-red-500">
               {errors.todo.message}
             </span>
           )}
         </div>
-        <div className="flex w-full flex-col gap-1 text-zinc-500 capitalize">
+
+        <div className="relative flex w-full flex-col gap-1 text-zinc-500 capitalize">
           <label className="hidden text-nowrap md:block" htmlFor={dateId}>
             when should Todo be Done?
           </label>
@@ -71,11 +72,11 @@ function AddTodoForm() {
             min={today}
             className="w-full rounded-md border border-zinc-600 px-4 py-2 placeholder:text-zinc-500"
             {...register("dueDate", {
-              required: "jsut select a day",
+              required: "just select a day",
             })}
           />
           {errors.dueDate && (
-            <span className="text-xs text-red-500">
+            <span className="absolute bottom-0 left-0 text-xs text-red-500">
               {errors.dueDate.message}
             </span>
           )}
@@ -83,7 +84,7 @@ function AddTodoForm() {
 
         <button
           type="submit"
-          className="hover:bg-secondary bg-primary mt-0 h-11 w-full cursor-pointer justify-self-end rounded-md px-4 py-3 text-xs text-white capitalize transition-colors md:mt-7 md:w-2/3"
+          className="bg-primary hover:bg-secondary mt-0 h-11 w-full cursor-pointer justify-self-end rounded-md text-xs text-white capitalize transition-colors md:mt-7 md:w-2/3"
         >
           add
         </button>
