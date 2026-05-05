@@ -12,12 +12,20 @@ export const removeTodo = (todoId: number) => {
 };
 
 // Get Todo
-
 export const getTodo = () => {
   return apiRequests.get("/todo");
+};
+
+// Get desire Todo
+export const getDesireTodo = (todoId: number) => {
+  return apiRequests.get(`/todo/${todoId}`);
 };
 
 // Done-handler todo
 export const doneHandler = (todoId: number, newTodo: ITodo) => {
   return apiRequests.put(`/todo/${todoId}`, newTodo);
+};
+// update todo
+export const updateTodo = (id: number, todo: ITodo) => {
+  return apiRequests.put<ITodo>(`/todo/${id}`, todo);
 };
