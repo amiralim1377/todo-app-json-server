@@ -17,6 +17,7 @@ const useTodoForm = ({ initialTodo, mode = "add" }: UseTodoFormOptions) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<TodoFormValues>({
     resolver: zodResolver(todoSchema),
@@ -40,6 +41,9 @@ const useTodoForm = ({ initialTodo, mode = "add" }: UseTodoFormOptions) => {
       addTodos(todoObj)
         .then((res) => {
           console.log(res.data);
+        })
+        .then(() => {
+          reset();
         })
         .catch((err) => console.log(err));
     } else {
