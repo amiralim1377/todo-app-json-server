@@ -8,6 +8,7 @@ import NewCustomModal from "../ui/newCustomModal";
 import { EditTodoForm } from "../EditTodoForm";
 import { isCompleted } from "./utility/isCompleted";
 import { useTaskActions } from "./custom-hook/useTaskActions";
+import { useModalContext } from "../../context/ModalContext/ModalContext";
 
 export interface TaskListItemProps {
   todoItem: ITodo;
@@ -16,12 +17,12 @@ export interface TaskListItemProps {
 function TaskListItem({ todoItem }: TaskListItemProps) {
   const { completed, dueDate, id, todo } = todoItem;
   const { width } = useWindowSize();
+  const { isModalOpen, activeTodoId } = useModalContext();
   const {
     handleCloseModal,
     handleOpenModal,
     handleDeleteTodo,
     handleDoneTodo,
-    openModal,
   } = useTaskActions(todoItem);
 
   // Helper variables for cleaner tsx
@@ -89,9 +90,9 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
           delete
         </button>
       </div>
-      {openModal && (
+      {isModalOpen && activeTodoId === id && (
         <NewCustomModal
-          isOpen={openModal}
+          isOpen={isModalOpen}
           title="edit"
           onClose={handleCloseModal}
           className="w-full md:max-w-225"
