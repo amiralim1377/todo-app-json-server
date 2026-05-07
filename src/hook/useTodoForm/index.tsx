@@ -5,6 +5,8 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { addTodos, updateTodo } from "../../services/Axios/Requests/todos/Todo";
 import type { ITodo } from "../../types/Todo.interface";
 import { localDate } from "../../utility/localDate";
+import { useTodoContext } from "../../context/TodoContext/todoContext";
+import { useModalContext } from "../../context/ModalContext/ModalContext";
 
 interface UseTodoFormOptions {
   initialTodo?: ITodo;
@@ -12,6 +14,8 @@ interface UseTodoFormOptions {
 }
 
 const useTodoForm = ({ initialTodo, mode = "add" }: UseTodoFormOptions) => {
+  const { setTodoArray } = useTodoContext();
+  const { closeModal } = useModalContext();
   type TodoFormValues = z.infer<typeof todoSchema>;
 
   const {
@@ -40,7 +44,7 @@ const useTodoForm = ({ initialTodo, mode = "add" }: UseTodoFormOptions) => {
     if (mode === "add") {
       addTodos(todoObj)
         .then((res) => {
-          console.log(res.data);
+          setTodoArray((prev) => [...prev, res.data]);
         })
         .then(() => {
           reset();
@@ -48,8 +52,11 @@ const useTodoForm = ({ initialTodo, mode = "add" }: UseTodoFormOptions) => {
         .catch((err) => console.log(err));
     } else {
       updateTodo(todoObj.id!, todoObj)
-        .then((res) => {
-          console.log(res.data);
+        .then(() => {
+          setTodoArray((prev) =>
+            prev.map((todo) => (todo.id === todoObj.id ? todoObj : todo)),
+          );
+          closeModal();
         })
         .then(() =>
           window.history.replaceState({}, "", window.location.pathname),
