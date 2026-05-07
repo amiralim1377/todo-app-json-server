@@ -1,27 +1,10 @@
-import { useEffect, useState } from "react";
 import { TaskListItem } from "../TaskListItem";
 import type { ITodo } from "../../types/Todo.interface";
 import { NoTasks } from "../NoTasks";
-import { getTodo } from "../../services/Axios/Requests/todos/Todo";
+import { useTodoContext } from "../../context/TodoContext/todoContext";
 
 function TodoList() {
-  const [todosArray, setTodoArray] = useState<Array<ITodo>>([]);
-  const sortedTodo = [...todosArray].sort(
-    (a, b) => Number(a.completed) - Number(b.completed),
-  );
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data: dataArray } = await getTodo();
-        setTodoArray(dataArray);
-      } catch (error) {
-        if (error instanceof Error) {
-          console.log(error.message);
-        }
-      }
-    };
-    getData();
-  }, []);
+  const { todos } = useTodoContext();
 
   return (
     <div className="mt-1 w-full">
@@ -29,8 +12,8 @@ function TodoList() {
         task
       </h1>
       <div className="max-h-72 overflow-y-scroll">
-        {todosArray.length > 0 ? (
-          sortedTodo?.map((todoItem: ITodo) => {
+        {todos.length > 0 ? (
+          todos?.map((todoItem: ITodo) => {
             return <TaskListItem key={todoItem.id} todoItem={todoItem} />;
           })
         ) : (
