@@ -1,17 +1,23 @@
-import { useState } from "react";
 import {
   doneHandler,
   removeTodo,
 } from "../../../../services/Axios/Requests/todos/Todo";
 import type { ITodo } from "../../../../types/Todo.interface";
+import { useTodoContext } from "../../../../context/TodoContext/todoContext";
+import { useModalContext } from "../../../../context/ModalContext/ModalContext";
 
 const useTaskActions = (todoItem: ITodo) => {
-  const [openModal, setOpenModal] = useState(false);
+  const { setTodoArray } = useTodoContext();
+  const { openModal, closeModal } = useModalContext();
 
   const handleDoneTodo = async (todoId: number) => {
     try {
       const newTodo = { ...todoItem, completed: true };
+      console.log(newTodo);
       await doneHandler(todoId as number, newTodo);
+      setTodoArray((prev) =>
+        prev.map((todo) => (todo.id === todoId ? newTodo : todo)),
+      );
     } catch (error) {
       console.error("Failed to complete todo:", error);
     }
@@ -20,6 +26,7 @@ const useTaskActions = (todoItem: ITodo) => {
   const handleDeleteTodo = async (id: number) => {
     try {
       await removeTodo(id as number);
+      setTodoArray((prev) => prev.filter((todo) => todo.id !== id));
     } catch (error) {
       console.error("Failed to delete todo:", error);
     }
@@ -29,12 +36,12 @@ const useTaskActions = (todoItem: ITodo) => {
     const newUrl = new URLSearchParams();
     newUrl.set("id", String(todoId));
     window.history.pushState(null, "", `?${newUrl.toString()}`);
-    setOpenModal(true);
+    openModal(todoId);
   };
 
   const handleCloseModal = () => {
     window.history.replaceState({}, "", window.location.pathname);
-    setOpenModal(false);
+    closeModal();
   };
 
   return {
@@ -42,7 +49,6 @@ const useTaskActions = (todoItem: ITodo) => {
     handleOpenModal,
     handleDeleteTodo,
     handleDoneTodo,
-    openModal,
   };
 };
 
