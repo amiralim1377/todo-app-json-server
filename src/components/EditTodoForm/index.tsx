@@ -14,6 +14,7 @@ function EditTodoForm() {
     mode: "edit",
   });
 
+  // logic:get desire todo id from url then get the information
   useEffect(() => {
     const getEditTodo = async () => {
       try {
