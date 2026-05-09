@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { classNames } from "../../../utility/classNames";
+import type { ModalStateProps } from "../../../context/ModalContext/ModalContextProvider";
 
 interface NewCustomModalProps {
-  isOpen: boolean;
+  isOpen: boolean | ModalStateProps;
   onClose: () => void;
   title?: string;
   description?: string;
