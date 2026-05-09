@@ -5,6 +5,7 @@ import {
 import type { ITodo } from "../../../../types/Todo.interface";
 import { useTodoContext } from "../../../../context/TodoContext/todoContext";
 import { useModalContext } from "../../../../context/ModalContext/ModalContext";
+import type { ModalStateType } from "../../../../context/ModalContext/ModalContextProvider";
 
 const useTaskActions = (todoItem: ITodo) => {
   const { setTodoArray } = useTodoContext();
@@ -13,7 +14,6 @@ const useTaskActions = (todoItem: ITodo) => {
   const handleDoneTodo = async (todoId: number) => {
     try {
       const newTodo = { ...todoItem, completed: true };
-      console.log(newTodo);
       await doneHandler(todoId as number, newTodo);
       setTodoArray((prev) =>
         prev.map((todo) => (todo.id === todoId ? newTodo : todo)),
@@ -32,11 +32,11 @@ const useTaskActions = (todoItem: ITodo) => {
     }
   };
 
-  const handleOpenModal = (todoId: number) => {
+  const handleOpenModal = (todoId: number, type: ModalStateType) => {
     const newUrl = new URLSearchParams();
     newUrl.set("id", String(todoId));
     window.history.pushState(null, "", `?${newUrl.toString()}`);
-    openModal(todoId);
+    openModal(todoId, type);
   };
 
   const handleCloseModal = () => {
