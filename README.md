@@ -26,7 +26,7 @@ Manage your daily tasks effortlessly with complete CRUD functionality and robust
 
 <div align="center">
   <!-- Replace the URL below with a link to your actual screenshot -->
-  <img src="https://via.placeholder.com/800x400?text=Your+App+Screenshot+Here" alt="App Screenshot" width="100%" style="border-radius: 8px;" />
+  <img src="/app-1.jpg" alt="App Screenshot" width="100%" style="border-radius: 8px;" />
 </div>
 
 ---
