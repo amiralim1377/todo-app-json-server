@@ -13,10 +13,10 @@ function AddTodoForm() {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid w-full grid-cols-1 justify-items-center gap-3 rounded-md border border-zinc-500 bg-white p-3 md:grid-cols-[2fr_2fr_1fr] md:p-6"
+        className="grid w-full grid-cols-1 justify-items-center gap-4 rounded-md border border-zinc-500 bg-white p-3 shadow-xs sm:grid-cols-[1.5fr_1.5fr_1fr] md:grid-cols-[2fr_2fr_1fr] md:p-6"
       >
         <div className="relative flex w-full flex-col gap-1 pb-4 text-zinc-500 capitalize md:pb-5">
-          <label className="hidden md:block" htmlFor={todoId}>
+          <label className="hidden sm:block" htmlFor={todoId}>
             write your todo below
           </label>
           <input
@@ -34,7 +34,7 @@ function AddTodoForm() {
         </div>
 
         <div className="relative flex w-full flex-col gap-1 pb-4 text-zinc-500 capitalize md:pb-5">
-          <label className="hidden text-nowrap md:block" htmlFor={dateId}>
+          <label className="hidden text-nowrap sm:block" htmlFor={dateId}>
             when should Todo be Done?
           </label>
           <input
@@ -53,7 +53,7 @@ function AddTodoForm() {
 
         <button
           type="submit"
-          className="bg-primary hover:bg-secondary mt-0 h-8 w-full cursor-pointer justify-self-end rounded-md text-xs text-white capitalize transition-colors md:mt-7 md:h-11 md:w-2/3"
+          className="bg-primary hover:bg-secondary mt-auto mb-4 h-8 w-full cursor-pointer rounded-md text-xs text-white capitalize transition-colors md:mt-7 md:h-11 md:w-2/3"
         >
           add
         </button>
