@@ -7,9 +7,9 @@ import { getTimeDifference } from "../../utility/getTimeDifference";
 import NewCustomModal from "../ui/newCustomModal";
 import { EditTodoForm } from "../EditTodoForm";
 import { isCompleted } from "./utility/isCompleted";
-import { useTaskActions } from "./custom-hook/useTaskActions";
 import { useModalContext } from "../../context/ModalContext/ModalContext";
 import { DeleteTodoModal } from "../DeleteTodoModal";
+import { useTaskActions } from "../../hook/useTaskActions";
 
 export interface TaskListItemProps {
   todoItem: ITodo;
