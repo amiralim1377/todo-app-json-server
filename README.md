@@ -66,7 +66,7 @@ Follow these steps to set up the project locally on your machine.
 
 ````bash
 # Clone the repository
-git clone https://github.com/amiralim1377/json-server-api.git
+git clone https://github.com/amiralim1377/todo-app-json-server.git
 
 # Navigate into the project directory
 cd json-server-api
