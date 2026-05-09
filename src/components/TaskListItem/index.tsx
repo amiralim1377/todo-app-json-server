@@ -9,6 +9,7 @@ import { EditTodoForm } from "../EditTodoForm";
 import { isCompleted } from "./utility/isCompleted";
 import { useTaskActions } from "./custom-hook/useTaskActions";
 import { useModalContext } from "../../context/ModalContext/ModalContext";
+import { DeleteTodoModal } from "../DeleteTodoModal";
 
 export interface TaskListItemProps {
   todoItem: ITodo;
@@ -17,7 +18,7 @@ export interface TaskListItemProps {
 function TaskListItem({ todoItem }: TaskListItemProps) {
   const { completed, dueDate, id, todo } = todoItem;
   const { width } = useWindowSize();
-  const { isModalOpen, activeTodoId } = useModalContext();
+  const { isModalOpen } = useModalContext();
   const {
     handleCloseModal,
     handleOpenModal,
@@ -28,7 +29,7 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
   // Helper variables for cleaner tsx
   const isMobile = width <= 320;
   const baseContainerClass =
-    "mt-1 flex overflow-hidden rounded-xl border border-zinc-300";
+    "mt-1 flex overflow-hidden rounded-md border border-zinc-300";
   const completedContainerClass =
     "border-gray-300 cursor-default bg-gray-200 text-gray-500";
 
@@ -75,13 +76,13 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
               : "bg-accent hover:bg-accent/80 cursor-pointer text-white",
             "p-1 text-sm capitalize md:p-3",
           )}
-          onClick={() => handleOpenModal(id as number)}
+          onClick={() => handleOpenModal(id as number, "edit")}
         >
           edit
         </button>
 
         <button
-          onClick={() => handleDeleteTodo(id as number)}
+          onClick={() => handleOpenModal(id as number, "delete")}
           className={classNames(
             completed ? "" : "",
             "cursor-pointer overflow-hidden bg-red-800 p-1 text-sm text-white capitalize hover:bg-red-700/80 md:p-3",
@@ -90,7 +91,7 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
           delete
         </button>
       </div>
-      {isModalOpen && activeTodoId === id && (
+      {isModalOpen.type === "edit" && isModalOpen.id === id && (
         <NewCustomModal
           isOpen={isModalOpen}
           title="edit"
@@ -98,6 +99,19 @@ function TaskListItem({ todoItem }: TaskListItemProps) {
           className="w-full md:max-w-225"
         >
           <EditTodoForm />
+        </NewCustomModal>
+      )}
+      {isModalOpen.type === "delete" && isModalOpen.id === id && (
+        <NewCustomModal
+          isOpen={isModalOpen}
+          title="delete"
+          onClose={handleCloseModal}
+          className="w-full md:max-w-150"
+        >
+          <DeleteTodoModal
+            onClose={handleCloseModal}
+            onDelete={() => handleDeleteTodo(id)}
+          />
         </NewCustomModal>
       )}
     </>
